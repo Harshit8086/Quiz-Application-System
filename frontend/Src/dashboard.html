@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Quiz Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo">Quiz Hub</div>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#quiz-packages">Quizzes</a>
+                <a href="index.html#performer">Leaderboard</a>
+                <!-- Dynamic links (Logout) added via JS -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 class="hero-title">User Dashboard</h1>
+            <p class="subtitle">Your progress and performance metrics</p>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="stat-total">—</div>
+                <div class="stat-label">Quizzes Taken</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-avg">—</div>
+                <div class="stat-label">Avg. Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-time">—</div>
+                <div class="stat-label">Total Time</div>
+            </div>
+        </div>
+
+        <!-- History Table -->
+        <section class="history-section">
+            <div class="history-header">
+                <h2>Quiz History</h2>
+            </div>
+            <div class="table-wrapper" id="history-container">
+                <p style="text-align: center; color: #0cebeb;">Loading your history...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast-notification"></div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

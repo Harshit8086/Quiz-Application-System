@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result — Quiz Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        /* Abstract animated background shapes */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            animation: drift 15s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            width: clamp(200px, 40vw, 400px);
+            height: clamp(200px, 40vw, 400px);
+            background: rgba(0, 210, 255, 0.2);
+            top: -50px;
+            left: -50px;
+        }
+
+        body::after {
+            width: clamp(300px, 60vw, 600px);
+            height: clamp(300px, 60vw, 600px);
+            background: rgba(58, 123, 213, 0.2);
+            bottom: -100px;
+            right: -50px;
+            animation-delay: -7s;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        .result-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: clamp(1.5rem, 8vw, 3rem);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-icon {
+            font-size: clamp(3rem, 15vw, 4.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .player-greeting {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: clamp(1.75rem, 8vw, 2.25rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .score-badge {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 6vw, 2rem);
+            margin-bottom: 2rem;
+        }
+
+        .score-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .score-value {
+            font-size: clamp(3.5rem, 15vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(90deg, #0cebeb, #20e3b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .score-total {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 0.75rem;
+        }
+
+        .feedback {
+            font-size: clamp(1rem, 5vw, 1.25rem);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            line-height: 1.4;
+        }
+
+        .feedback.excellent { color: #2ecc71; }
+        .feedback.good      { color: #f1c40f; }
+        .feedback.retry     { color: #ff6b6b; }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0cebeb, #20e3b2);
+            color: #0b2e3f;
+            box-shadow: 0 4px 15px rgba(32, 227, 178, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(32, 227, 178, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <div class="result-icon" id="result-icon">🎯</div>
+        <p class="player-greeting" id="player-greeting"></p>
+        <h1>Your Quiz Result</h1>
+
+        <div class="score-badge">
+            <p class="score-label">Score</p>
+            <p class="score-value" id="score-value">—</p>
+            <p class="score-total" id="score-total"></p>
+        </div>
+
+        <p class="feedback" id="feedback"></p>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="retryQuiz()">Try Again</button>
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+    </div>
+
+    <script>
+        function displayResult() {
+            const score           = localStorage.getItem('quizScore');
+            const totalQuestions  = localStorage.getItem('totalQuestions');
+            const playerName      = localStorage.getItem('playerName') || '';
+
+            if (playerName) {
+                document.getElementById('player-greeting').textContent =
+                    `Well done, ${playerName}!`;
+            }
+
+            if (score !== null) {
+                const numScore  = parseInt(score, 10);
+                const numTotal  = parseInt(totalQuestions, 10);
+                const pct       = (numScore / numTotal) * 100;
+
+                document.getElementById('score-value').textContent = numScore;
+                document.getElementById('score-total').textContent =
+                    `out of ${numTotal} questions`;
+
+                const feedbackEl  = document.getElementById('feedback');
+                const iconEl      = document.getElementById('result-icon');
+
+                if (pct >= 80) {
+                    feedbackEl.textContent  = '🌟 Excellent work! You nailed it!';
+                    feedbackEl.className    = 'feedback excellent';
+                    iconEl.textContent      = '🏆';
+                } else if (pct >= 50) {
+                    feedbackEl.textContent  = '👍 Good job! A little more practice and you\'ll ace it!';
+                    feedbackEl.className    = 'feedback good';
+                    iconEl.textContent      = '👍';
+                } else {
+                    feedbackEl.textContent  = '💪 Don\'t give up — every attempt makes you stronger!';
+                    feedbackEl.className    = 'feedback retry';
+                    iconEl.textContent      = '💪';
+                }
+            } else {
+                document.getElementById('score-value').textContent = '—';
+                document.getElementById('feedback').textContent    = 'No score available. Please take a quiz first.';
+            }
+        }
+
+        function retryQuiz() {
+            // Clear previous result before retrying
+            localStorage.removeItem('quizScore');
+            localStorage.removeItem('totalQuestions');
+            window.location.href = 'java-quiz.html';
+        }
+
+        window.onload = displayResult;
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Compiled class files
+**/target/
+*.class
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor configuration files
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+bin/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment and sensitive data
+.env
+.env.*
+application.properties
+!application-example.properties
+
+# Build/Package files
+mvnw
+mvnw.cmd
+.mvn/
+dist/
+build/

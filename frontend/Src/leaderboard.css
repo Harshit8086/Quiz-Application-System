@@ -1,0 +1,75 @@
+/* ── Styles for Leaderboard ─────────────────────────────────────────────── */
+.leaderboard-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: clamp(1rem, 4vw, 2rem);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease;
+    gap: 1rem;
+}
+
+.leaderboard-item:last-child {
+    border-bottom: none;
+}
+
+.leaderboard-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.lb-rank {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #00d2ff;
+    min-width: 30px;
+}
+
+.lb-player {
+    flex-grow: 1;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Handle very long names */
+}
+
+.lb-stats {
+    text-align: right;
+    min-width: 80px;
+}
+
+.lb-score {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2ecc71;
+}
+
+.lb-time {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2px;
+}
+
+/* ── Top 3 Highlights ────────────────────────────────────────────────────── */
+.leaderboard-item:nth-child(1) .lb-rank { color: #f1c40f; font-size: 1.5rem; text-shadow: 0 0 10px rgba(241,196,15,0.4); }
+.leaderboard-item:nth-child(2) .lb-rank { color: #bdc3c7; font-size: 1.3rem; text-shadow: 0 0 8px rgba(189,195,199,0.4); }
+.leaderboard-item:nth-child(3) .lb-rank { color: #cd7f32; font-size: 1.1rem; text-shadow: 0 0 8px rgba(205,127,50,0.4); }
+
+@media (min-width: 768px) {
+    .leaderboard-container { margin: 40px auto; }
+    .leaderboard-item { padding: 1rem 1.25rem; }
+}

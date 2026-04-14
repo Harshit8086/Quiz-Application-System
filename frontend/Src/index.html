@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Quiz Hub — Test your programming knowledge with timed quizzes on Java, Python, JavaScript, and more.">
+    <title>Quiz Hub — Programming Quizzes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+
+<body>
+
+    <!-- ── Navigation ────────────────────────────────────────────────────── -->
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo">Quiz Hub</div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <a href="#">Home</a>
+                <a href="#quiz-packages">Quizzes</a>
+                <a href="#performer">Top Performers</a>
+                <a href="#notes">Notes</a>
+                <!-- Dynamic links (Dashboard/Login) added via JS -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Landing Page (Hero Section) ────────────────────────────────────── -->
+    <section class="landing-page">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Test Your Knowledge Instantly</h1>
+                <p class="hero-subtitle">Engage with fast-paced programming quizzes designed to sharpen your skills and
+                    boost your confidence.</p>
+                <a href="#quiz-packages" class="btn hero-btn">Start Quiz</a>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="/assets/Boy.png" alt="People taking a quiz online" class="hero-illustration">
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Quiz Packages ─────────────────────────────────────────────────── -->
+    <section class="quiz-packages-section" id="quiz-packages">
+        <h2 class="quiz-heading">Coding Quizzes</h2>
+        <p class="quiz-text">
+            Test your programming fundamentals with timed, randomised questions.
+            Each quiz is fetched live from our question bank — no two sessions are the same.
+        </p>
+        <div class="package-wrapper">
+
+            <!-- Java — active -->
+            <div class="package-card">
+                <img src="/assets/java1.jpg" alt="Java programming language logo">
+                <p class="card-heading">Java</p>
+                <p class="card-text">OOP, Collections, Streams, Generics, and more — 10 random questions per session.
+                </p>
+                <p class="card-price">₹500</p>
+                <button class="btn" id="btn-java" onclick="startQuiz('java')">Take Quiz</button>
+            </div>
+
+            <!-- Python — coming soon -->
+            <div class="package-card coming-soon-card">
+                <img src="/assets/python.jpg" alt="Python programming language logo">
+                <p class="card-heading">Python</p>
+                <p class="card-text">Functions, decorators, comprehensions, and the Python standard library.</p>
+                <p class="card-price">₹400</p>
+                <button class="btn" id="btn-python" onclick="startQuiz('python')">Take Quiz</button>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+
+            <!-- JavaScript — coming soon -->
+            <div class="package-card coming-soon-card">
+                <img src="/assets/js.jpg" alt="JavaScript programming language logo">
+                <p class="card-heading">JavaScript</p>
+                <p class="card-text">ES6+, async/await, closures, the event loop, and DOM manipulation.</p>
+                <p class="card-price">₹300</p>
+                <button class="btn" id="btn-js" onclick="startQuiz('javascript')">Take Quiz</button>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+
+            <!-- .Net — coming soon -->
+            <div class="package-card coming-soon-card">
+                <img src="/assets/net.jpg" alt=".NET framework logo">
+                <p class="card-heading">.NET</p>
+                <p class="card-text">C#, ASP.NET Core, Entity Framework, and LINQ fundamentals.</p>
+                <p class="card-price">₹200</p>
+                <button class="btn" id="btn-dotnet" onclick="startQuiz('dotnet')">Take Quiz</button>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── Top Performers ────────────────────────────────────────────────── -->
+    <section class="performer-quiz-section" id="performer">
+        <h2 class="quiz-heading">Top Performers</h2>
+        <p class="quiz-text">Meet the learners who aced their quizzes — can you beat their scores?</p>
+        <div class="leaderboard-container" id="leaderboard-container">
+            <p style="color: #00d2ff; font-weight: 500;">Loading live leaderboard...</p>
+        </div>
+    </section>
+
+    <!-- ── Subject Notes ─────────────────────────────────────────────────── -->
+    <section class="notes-section" id="notes">
+        <h2 class="quiz-heading">Subject Notes</h2>
+        <p class="quiz-text">Brush up on the fundamentals before you take a quiz.</p>
+        <div class="notes-div">
+            <div class="notes-wrapper">
+                <a href="https://drive.google.com/file/d/1lrB5aZf6TD2vAMxFy6aRVBrW6-oGiceV/view?usp=sharing"
+                    target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; height: 100%;">
+                    <img src="/assets/java2.jpg" alt="Java notes">
+                </a>
+            </div>
+            <div class="notes-wrapper"><img src="/assets/compiler.png" alt="Compiler notes"></div>
+            <div class="notes-wrapper"><img src="/assets/spring.png" alt="Spring Boot notes"></div>
+            <div class="notes-wrapper"><img src="/assets/react.jpg" alt="React notes"></div>
+            <div class="notes-wrapper"><img src="/assets/devops.jpg" alt="DevOps notes"></div>
+            <div class="notes-wrapper"><img src="/assets/python1.jpg" alt="Python notes"></div>
+        </div>
+    </section>
+
+    <!-- ── Footer ────────────────────────────────────────────────────────── -->
+    <footer class="footer-section">
+        <small>All Rights Reserved &copy; 2024</small>
+        <small>Developed &amp; Maintained By
+            <a href="https://www.linkedin.com/in/harshit-kumar-b16a57282/" target="_blank"
+                rel="noopener noreferrer">Harshit Kumar</a>
+        </small>
+    </footer>
+
+
+    <!-- ── Toast Notification ────────────────────────────────────────────── -->
+    <div class="toast" id="toast-notification" role="status" aria-live="polite"></div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

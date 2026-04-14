@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Quiz — Quiz Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="java-quiz.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Java Quiz</h1>
+        <p class="player-info" id="player-name">Loading…</p>
+
+        <!-- Progress bar -->
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <!-- Info: timer + question counter -->
+        <div class="quiz-info">
+            <div id="timer">
+                ⏱ Time Left: <span id="time">60</span>s
+            </div>
+            <div class="question-number">
+                Question <span id="current-question">1</span> of <span id="total-questions">10</span>
+            </div>
+        </div>
+
+        <!-- Question text -->
+        <div class="question" id="question-text">Loading question…</div>
+
+        <!-- Answer options rendered by JS -->
+        <div class="options" id="options-container"></div>
+
+        <!-- Next button (hidden until answer is selected, as a fallback) -->
+        <button id="next-button" class="next-button" onclick="nextQuestion()" style="display:none;">
+            Next →
+        </button>
+    </div>
+
+    <script src="java-quiz.js"></script>
+</body>
+</html>
