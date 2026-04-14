@@ -8,7 +8,7 @@ let timerInterval;
 let startTime;
 let quizEnded = false;    // guard flag — prevents race condition between timer and nextQuestion()
 
-const API_BASE = 'http://localhost:8080';
+const API_BASE = '';
 
 // ── Auth helpers ──────────────────────────────────────────────────────────
 

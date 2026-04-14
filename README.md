@@ -77,6 +77,25 @@ Simply open `frontend/Src/index.html` in your browser or serve it using a local 
 
 ---
 
+## 🐳 Docker Deployment (Recommended)
+
+The easiest way to run the entire stack (Frontend, Backend, and Database) is using Docker Compose.
+
+### Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+
+### Steps
+1. **Clone the repository.**
+2. **Start the application:**
+   ```bash
+   docker-compose up --build
+   ```
+3. **Access the app:**
+   - **Frontend:** http://localhost
+   - **Backend API:** http://localhost:8080/api
+
+---
+
 ## 📸 Screenshots
 *(Add your screenshots here later)*
 
