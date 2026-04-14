@@ -2,7 +2,6 @@
 
 A professional, modern quiz platform designed for seamless learning and competitive assessment. Built with a high-performance **Spring Boot** backend and a stunning **Glassmorphic** frontend.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Spring Boot](https://img.shields.io/badge/backend-Spring--Boot-6DB33F?logo=springboot)
 ![MySQL](https://img.shields.io/badge/database-MySQL-4479A1?logo=mysql)
 ![Frontend](https://img.shields.io/badge/frontend-HTML--CSS--JS-E34F26?logo=html5)
@@ -23,7 +22,7 @@ A professional, modern quiz platform designed for seamless learning and competit
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Java 17**
+- **Java 21**
 - **Spring Boot** (Security, Data JPA, Web)
 - **JWT (JSON Web Token)** for stateless authentication
 - **MySQL** Database
@@ -57,7 +56,7 @@ A professional, modern quiz platform designed for seamless learning and competit
 ## 🚀 Getting Started
 
 ### Prerequisites
-- JDK 17 or higher
+- JDK 21 or higher
 - MySQL Server
 - Maven (optional, if using `mvnw`)
 
@@ -90,11 +89,5 @@ Simply open `frontend/Src/index.html` in your browser or serve it using a local 
 - [ ] Dark mode toggle.
 - [ ] Integrate Docker for one-click deployment.
 
----
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 **Developed with ❤️ by [Harshit](https://github.com/Harshit8086)**
